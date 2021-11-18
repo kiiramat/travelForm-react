@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import InputForm from './components/InputForm';
+import RadioButtonForm from './components/RadioButtonForm';
 
 class App extends React.Component {
   constructor() {
@@ -41,6 +42,19 @@ class App extends React.Component {
               value = {this.state.age}
               placeholder = "Age"
               handleChange = {this.onChange} 
+            />
+            <br />
+            <RadioButtonForm 
+              name = "gender"
+              value = "male"
+              checked = {this.state.gender === "male"}
+              handleChange = {this.onChange}
+            />
+            <RadioButtonForm 
+              name = "gender"
+              value = "female"
+              checked = {this.state.gender === "female"}
+              handleChange = {this.onChange}
             />
 
 

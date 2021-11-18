@@ -1,15 +1,32 @@
 import React from "react";
 
 class RadioButtonForm extends React.Component {
-    constructor() {
-        super()
-    }
+  constructor() {
+    super()
+    this.onRadioButtonChange = this.onRadioButtonChange.bind(this)
+  }
 
-    render() {
-        return (
-            <h1>hi!</h1>
-        )
-    }
+  onRadioButtonChange(event) {
+    const { name, value } = event.target
+    this.props.handleChange(name, value)
+  }
+
+  render() {
+    return (
+      <div>
+        <label>
+          <input
+            type = "radio"
+            name = {this.props.name}
+            value = {this.props.value}
+            checked = {this.props.checked}
+            onChange = {this.onRadioButtonChange}
+          />
+          {this.props.value}
+        </label>
+      </div>
+    )
+  }
 }
 
 export default RadioButtonForm
