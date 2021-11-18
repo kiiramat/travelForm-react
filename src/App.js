@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import InputForm from './components/InputForm';
 import RadioButtonForm from './components/RadioButtonForm';
+import SelectForm from './components/SelectForm';
 
 class App extends React.Component {
   constructor() {
@@ -9,7 +10,8 @@ class App extends React.Component {
     this.state = {
       firstName: "",
       lastName: "",
-      age: ""
+      age: "",
+      travelTo: "Lisbon"
     }
     this.onChange = this.onChange.bind(this)
   }
@@ -25,6 +27,7 @@ class App extends React.Component {
       <div className="App">
         <main>
           <form>
+            <br />
             <InputForm 
               name = "firstName"
               value = {this.state.firstName}
@@ -56,18 +59,16 @@ class App extends React.Component {
               checked = {this.state.gender === "female"}
               handleChange = {this.onChange}
             />
-
-
-
-
-{/* 
-            <input placeholder="First Name" /><br />
-            <input placeholder="Last Name" /><br />
-            <input placeholder="Age" /><br /> */}
-            
-            {/* Create radio buttons for gender here */}
             <br />
-            
+            <SelectForm 
+              text = "Travel to: "
+              name = "travelTo"
+              value = {this.state.travelTo}
+              handleChange = {this.onChange}
+            />
+
+
+{/*          
             {/* Create select box for location here */}
             <br />
             
@@ -81,7 +82,7 @@ class App extends React.Component {
           <p>Your name: {this.state.firstName} {this.state.lastName}</p>
           <p>Your age: {this.state.age}</p>
           <p>Your gender: {this.state.gender}</p>
-          <p>Your destination: {/* Destination here */}</p>
+          <p>Your destination: {this.state.travelTo}</p>
           <p>
               Your dietary restrictions: 
               {/* Dietary restrictions here, comma separated */}
