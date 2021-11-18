@@ -80,7 +80,7 @@ class App extends React.Component {
           <h2>Entered information:</h2>
           <p>Your name: {this.state.firstName} {this.state.lastName}</p>
           <p>Your age: {this.state.age}</p>
-          <p>Your gender: {/* Gender here */}</p>
+          <p>Your gender: {this.state.gender}</p>
           <p>Your destination: {/* Destination here */}</p>
           <p>
               Your dietary restrictions: 
