@@ -3,6 +3,7 @@ import React from 'react';
 import InputForm from './components/InputForm';
 import RadioButtonForm from './components/RadioButtonForm';
 import SelectForm from './components/SelectForm';
+import CheckboxForm from './components/CheckboxForm';
 
 class App extends React.Component {
   constructor() {
@@ -11,9 +12,22 @@ class App extends React.Component {
       firstName: "",
       lastName: "",
       age: "",
-      travelTo: "Lisbon"
+      gender: "",
+      travelTo: "Lisbon",
+      dietaryRestrictions: {
+        isVegetarian: false,
+        isGlutenFree: false,
+        isLactoseFree: false
+      }
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.onChange = this.onChange.bind(this)
+    this.onChangedCheckbox = this.onChangedCheckbox.bind(this)
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    console.log("Form submitted!")
   }
 
   onChange(name, value) {
@@ -22,11 +36,28 @@ class App extends React.Component {
     })
   }
 
+  onChangedCheckbox(name, checked) {
+    this.setState(prevState => {
+      return {
+        dietaryRestrictions: {
+          ...prevState.dietaryRestrictions, [name] : checked
+        }
+      }
+    })
+  } 
+
+  showDietaryRestrictions() {
+    const dietarykeys = Object.keys(this.state.dietaryRestrictions)
+    const dietaryRestrictions = dietarykeys
+      .filter(key => this.state.dietaryRestrictions[key] === true)
+    return dietaryRestrictions.join(", ")
+  }
+
   render() {
      return (
       <div className="App">
         <main>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <br />
             <InputForm 
               name = "firstName"
@@ -66,13 +97,29 @@ class App extends React.Component {
               value = {this.state.travelTo}
               handleChange = {this.onChange}
             />
-
-
-{/*          
-            {/* Create select box for location here */}
             <br />
-            
-            {/* Create check boxes for dietary restrictions here */}
+            <label>Dietary Restriction: </label>
+            <CheckboxForm 
+              text = "Vegetarian ?"
+              name = "isVegetarian"
+              value = {this.state.dietaryRestrictions.isVegetarian}
+              checked = {this.state.dietaryRestrictions.isVegetarian}
+              handleChange = {this.onChangedCheckbox}
+            />
+            <CheckboxForm 
+              text = "Gluten Free ?"
+              name = "isGlutenFree"
+              value = {this.state.dietaryRestrictions.isGlutenFree}
+              checked = {this.state.dietaryRestrictions.isGlutenFree}
+              handleChange = {this.onChangedCheckbox}
+            />
+            <CheckboxForm 
+              text = "Lactose Free ?"
+              name = "isLactoseFree"
+              value = {this.state.dietaryRestrictions.isLactoseFree}
+              checked = {this.state.dietaryRestrictions.isLactoseFree}
+              handleChange = {this.onChangedCheckbox}
+            />
             <br />
             
             <button>Submit</button>
@@ -83,10 +130,7 @@ class App extends React.Component {
           <p>Your age: {this.state.age}</p>
           <p>Your gender: {this.state.gender}</p>
           <p>Your destination: {this.state.travelTo}</p>
-          <p>
-              Your dietary restrictions: 
-              {/* Dietary restrictions here, comma separated */}
-          </p>
+          <p>{`Your dietary restrictions: ${this.showDietaryRestrictions()}`}</p>
         </main>
       </div>
     )
