@@ -45,11 +45,12 @@ class App extends React.Component {
       }
     })
   } 
-
+  
   showDietaryRestrictions() {
     const dietarykeys = Object.keys(this.state.dietaryRestrictions)
     const dietaryRestrictions = dietarykeys
       .filter(key => this.state.dietaryRestrictions[key] === true)
+      .map(key => key.slice(2).replace(/([a-z])([A-Z])/, '$1 $2'))
     return dietaryRestrictions.join(", ")
   }
 
