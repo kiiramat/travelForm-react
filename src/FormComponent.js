@@ -1,6 +1,6 @@
 import React from "react";
 
-import styleFile from "./App.css"
+import './App.css';
 
 import InputForm from './components/InputForm';
 import RadioButtonForm from './components/RadioButtonForm';
