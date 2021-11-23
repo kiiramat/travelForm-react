@@ -1,4 +1,7 @@
 import React from "react";
+
+import styleFile from "./App.css"
+
 import InputForm from './components/InputForm';
 import RadioButtonForm from './components/RadioButtonForm';
 import SelectForm from './components/SelectForm';
@@ -6,7 +9,7 @@ import CheckboxForm from './components/CheckboxForm';
 
 function FormComponent(props) {
   return (
-    <div className="App">
+    <div className="Form-component">
       <main>
         <form onSubmit={props.handleSubmit}>
           <br />
