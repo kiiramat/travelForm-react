@@ -2,13 +2,13 @@ import React from "react";
 
 class InputForm extends React.Component {
   constructor() {
-    super()
-    this.onInputChange = this.onInputChange.bind(this)
+    super();
+    this.onInputChange = this.onInputChange.bind(this);
   }
 
   onInputChange(event) {
-    const { name, value } = event.target
-    this.props.handleChange(name, value)
+    const { name, value } = event.target;
+    this.props.handleChange(name, value);
   }
 
   render() {
@@ -22,8 +22,8 @@ class InputForm extends React.Component {
           autoComplete="off"
         />
       </div>
-    )
+    );
   }
 }
 
-export default InputForm
+export default InputForm;

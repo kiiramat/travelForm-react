@@ -3,7 +3,7 @@ import FormComponent from './FormComponent';
 
 class FormContainer extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       firstName: "",
       lastName: "",
@@ -15,21 +15,21 @@ class FormContainer extends React.Component {
         isGlutenFree: false,
         isLactoseFree: false
       }
-    }
-    this.onChange = this.onChange.bind(this)
-    this.onChangedCheckbox = this.onChangedCheckbox.bind(this)
-    this.showDietaryRestrictions = this.showDietaryRestrictions.bind(this)
+    };
+    this.onChange = this.onChange.bind(this);
+    this.onChangedCheckbox = this.onChangedCheckbox.bind(this);
+    this.showDietaryRestrictions = this.showDietaryRestrictions.bind(this);
   }
 
   handleSubmit(event) {
-    event.preventDefault()
-    console.log("Form submitted!")
+    event.preventDefault();
+    console.log("Form submitted!");
   }
 
   onChange(name, value) {
     this.setState({
       [name]: value
-    })
+    });
   }
 
   onChangedCheckbox(name, checked) {
@@ -38,28 +38,28 @@ class FormContainer extends React.Component {
         dietaryRestrictions: {
           ...prevState.dietaryRestrictions, [name]: checked
         }
-      }
-    })
+      };
+    });
   }
 
   showDietaryRestrictions() {
-    const dietarykeys = Object.keys(this.state.dietaryRestrictions)
+    const dietarykeys = Object.keys(this.state.dietaryRestrictions);
     const dietaryRestrictions = dietarykeys
       .filter(key => this.state.dietaryRestrictions[key] === true)
-      .map(key => key.slice(2).replace(/([a-z])([A-Z])/, '$1 $2'))
-    return dietaryRestrictions.join(", ")
+      .map(key => key.slice(2).replace(/([a-z])([A-Z])/, '$1 $2'));
+    return dietaryRestrictions.join(", ");
   }
 
   render() {
     return (
-      <FormComponent 
-        data = {this.state}
-        handleSubmit = {this.handleSubmit}
-        onChange = {this.onChange}
-        onChangedCheckbox = {this.onChangedCheckbox}
-        showDietaryRestrictions = {this.showDietaryRestrictions}
+      <FormComponent
+        data={this.state}
+        handleSubmit={this.handleSubmit}
+        onChange={this.onChange}
+        onChangedCheckbox={this.onChangedCheckbox}
+        showDietaryRestrictions={this.showDietaryRestrictions}
       />
-    )
+    );
   }
 }
 

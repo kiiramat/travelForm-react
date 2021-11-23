@@ -2,13 +2,13 @@ import React from "react";
 
 class SelectForm extends React.Component {
   constructor() {
-    super()
-    this.onSelectChange = this.onSelectChange.bind(this)
+    super();
+    this.onSelectChange = this.onSelectChange.bind(this);
   }
 
   onSelectChange(event) {
-    const { name, value } = event.target
-    this.props.handleChange(name, value)
+    const { name, value } = event.target;
+    this.props.handleChange(name, value);
   }
 
   render() {
@@ -27,8 +27,8 @@ class SelectForm extends React.Component {
           <option value="New Delhi">New Delhi</option>
         </select>
       </div>
-    )
+    );
   }
 }
 
-export default SelectForm
+export default SelectForm;

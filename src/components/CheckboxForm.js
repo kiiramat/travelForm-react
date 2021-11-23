@@ -2,13 +2,13 @@ import React from "react";
 
 class CheckboxForm extends React.Component {
   constructor() {
-    super()
-    this.onCheckboxChange = this.onCheckboxChange.bind(this)
+    super();
+    this.onCheckboxChange = this.onCheckboxChange.bind(this);
   }
 
   onCheckboxChange(event) {
-    const { name, checked } = event.target
-    this.props.handleChange(name, checked)
+    const { name, checked } = event.target;
+    this.props.handleChange(name, checked);
   }
 
   render() {
@@ -24,8 +24,8 @@ class CheckboxForm extends React.Component {
           {this.props.text}
         </label>
       </div>
-    )
+    );
   }
 }
 
-export default CheckboxForm
+export default CheckboxForm;

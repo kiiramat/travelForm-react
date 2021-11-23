@@ -87,7 +87,7 @@ function FormComponent(props) {
         <p>{`Your dietary restrictions: ${props.showDietaryRestrictions()}`}</p>
       </main>
     </div>
-  )
+  );
 }
 
-export default FormComponent
+export default FormComponent;
