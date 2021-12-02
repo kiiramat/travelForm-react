@@ -16,9 +16,6 @@ class FormContainer extends React.Component {
         isLactoseFree: false
       }
     };
-    this.onChange = this.onChange.bind(this);
-    this.onChangedCheckbox = this.onChangedCheckbox.bind(this);
-    this.showDietaryRestrictions = this.showDietaryRestrictions.bind(this);
   }
 
   handleSubmit(event) {
@@ -26,13 +23,13 @@ class FormContainer extends React.Component {
     console.log("Form submitted!");
   }
 
-  onChange(name, value) {
+  onChange = (name, value) => {
     this.setState({
       [name]: value
     });
   }
 
-  onChangedCheckbox(name, checked) {
+  onChangedCheckbox = (name, checked) => {
     this.setState(prevState => {
       return {
         dietaryRestrictions: {
@@ -42,7 +39,7 @@ class FormContainer extends React.Component {
     });
   }
 
-  showDietaryRestrictions() {
+  showDietaryRestrictions = () => {
     const dietarykeys = Object.keys(this.state.dietaryRestrictions);
     const dietaryRestrictions = dietarykeys
       .filter(key => this.state.dietaryRestrictions[key] === true)
