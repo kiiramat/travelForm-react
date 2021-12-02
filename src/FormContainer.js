@@ -27,7 +27,7 @@ class FormContainer extends React.Component {
     this.setState({
       [name]: value
     });
-  }
+  };
 
   onChangedCheckbox = (name, checked) => {
     this.setState(prevState => {
@@ -37,7 +37,7 @@ class FormContainer extends React.Component {
         }
       };
     });
-  }
+  };
 
   showDietaryRestrictions = () => {
     const dietarykeys = Object.keys(this.state.dietaryRestrictions);
@@ -45,7 +45,7 @@ class FormContainer extends React.Component {
       .filter(key => this.state.dietaryRestrictions[key] === true)
       .map(key => key.slice(2).replace(/([a-z])([A-Z])/, '$1 $2'));
     return dietaryRestrictions.join(", ");
-  }
+  };
 
   render() {
     return (
